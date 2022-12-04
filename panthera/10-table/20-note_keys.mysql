@@ -1,0 +1,6 @@
+CREATE TABLE `note_keys` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+    `key` VARCHAR(32),
+     UNIQUE KEY `id` (`id`),
+     KEY `index` (`id`)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;
