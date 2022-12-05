@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION `note_keyAdd`(
+  INOTE INT UNSIGNED,
+  IKEY VARCHAR(32)
+) RETURNS INT MODIFIES SQL DATA
+BEGIN
+    DECLARE key_id INT UNSIGNED; 
+    INSERT INTO `note_keys`(
+       `note_keys`.`note`,
+       `note_keys`.`key`
+    ) VALUES (
+       INOTE,
+       IKEY
+    );
+    SELECT LAST_INSERT_ID() INTO key_id;
+    RETURN key_id;
+END;

@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION `note_textAdd`(
+  INOTE INT UNSIGNED,
+  ITEXT TEXT
+) RETURNS INT MODIFIES SQL DATA
+BEGIN
+    DECLARE text_id INT UNSIGNED; 
+    INSERT INTO `note_texts`(
+       `note_texts`.`note`,
+       `note_texts`.`text`
+    ) VALUES (
+       INOTE,
+       ITEXT
+    );
+    SELECT LAST_INSERT_ID() INTO text_id;
+    RETURN text_id;
+END;

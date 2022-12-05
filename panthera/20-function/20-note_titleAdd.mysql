@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION `note_titleAdd`(
+  INOTE INT UNSIGNED,
+  ITITLE VARCHAR(128)
+) RETURNS INT MODIFIES SQL DATA
+BEGIN
+    DECLARE title_id INT UNSIGNED; 
+    INSERT INTO `note_titles`(
+       `note_titles`.`note`,
+       `note_titles`.`title`
+    ) VALUES (
+       INOTE,
+       ITITLE
+    );
+    SELECT LAST_INSERT_ID() INTO title_id;
+    RETURN title_id;
+END;
