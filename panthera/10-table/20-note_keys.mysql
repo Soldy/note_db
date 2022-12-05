@@ -1,5 +1,5 @@
 CREATE TABLE `note_keys` (
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+    `note` INT UNSIGNED NOT NULL,
     `key` VARCHAR(32),
      UNIQUE KEY `id` (`id`),
      KEY `index` (`id`)
