@@ -1,0 +1,26 @@
+CREATE OR REPLACE FUNCTION `noteAdd`(
+  IPUBLIC BOOL,
+  IOWNER INT UNSIGNED,
+  ITITLE VARCHAR(128),
+  ITEXT TEXT
+) RETURNS INT MODIFIES SQL DATA
+BEGIN
+    DECLARE note_id INT UNSIGNED; 
+    DECLARE title_id INT UNSIGNED; 
+    DECLARE text_id INT UNSIGNED; 
+    DECLARE key_id INT UNSIGNED; 
+    INSERT INTO `notes`(
+       `notes`.`public`,
+       `notes`.`owner`,
+       `notes`.`created_at`
+    ) VALUES (
+       IPUBLIC,
+       IOWNER,
+       UNIX_TIMESTAMP()
+    );
+    SELECT LAST_INSERT_ID() INTO note_id;
+    SELECT `note_titleAdd`(note_id, ITITLE) INTO title_id;
+    SELECT `note_textAdd`(note_id, ITEXT) INTO text_id;
+    SELECT `note_keyAdd`(note_id, serialShortGet('note')) INTO key_id;
+    RETURN note_id;
+END;
