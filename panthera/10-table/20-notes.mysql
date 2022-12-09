@@ -1,8 +1,7 @@
 CREATE TABLE `notes` (
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id` SERIAL,
     `public` BOOL,
     `owner` BIGINT UNSIGNED NOT NULL,
-    `created_at` BIGINT UNSIGNED NOT NULL
-     UNIQUE KEY `id` (`id`),
+    `created_at` BIGINT UNSIGNED NOT NULL,
      KEY `index` (`id`)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;

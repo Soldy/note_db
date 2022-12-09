@@ -1,6 +1,6 @@
 CREATE TABLE `note_titles` (
+    `id` SERIAL,
     `note` INT UNSIGNED NOT NULL,
     `title` VARCHAR(128),
-     UNIQUE KEY `id` (`id`),
      KEY `index` (`id`)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;
