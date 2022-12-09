@@ -1,0 +1,19 @@
+CREATE OR REPLACE PROCEDURE noteShow (IN IID INT UNSIGNED)
+BEGIN
+    SELECT 
+      `notes`.`id` AS `id`,
+      `notes`.`public` AS `pulic`,
+      `notes`.`owner` AS `owner`,
+      `notes`.`created_at` AS `created_at`,
+      `note_keys`.`key` AS `key`,
+      `note_texts`.`text` AS `text`,
+      `note_titles`.`title` AS `title`
+    FROM `notes`
+      LEFT JOIN `note_keys` ON `note_keys`.`note` = `notes`.`id`
+      LEFT JOIN `note_texts` ON `note_texts`.`note` = `notes`.`id`
+      LEFT JOIN `note_titles` ON `note_titles`.`note` = `notes`.`id`
+      WHERE `notes`.`id` = IID
+      AND `notes`.`public` = true
+      ORDER BY `note_keys`.`id`,`note_texts`.`id`,`note_titles`.`id` DESC
+      LIMIT 1;
+END

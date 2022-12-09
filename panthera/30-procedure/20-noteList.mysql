@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE noteList ()
+BEGIN
+    SELECT 
+      `notes`.`id` AS `id`,
+      `notes`.`public` AS `pulic`,
+      `notes`.`owner` AS `owner`,
+      `notes`.`created_at` AS `created_at`,
+      `note_keys`.`key` AS `key`,
+      `note_titles`.`title` AS `title`
+    FROM `notes`
+      LEFT JOIN `note_keys` ON `note_keys`.`note` = `notes`.`id`
+      LEFT JOIN `note_titles` ON `note_titles`.`note` = `notes`.`id`
+      GROUP BY `notes`.`id`
+      ORDER BY `notes`.`id` ASC, `note_keys`.`id`,`note_titles`.`id` DESC;
+END
