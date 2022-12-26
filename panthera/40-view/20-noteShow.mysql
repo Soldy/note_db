@@ -4,8 +4,8 @@ CREATE OR REPLACE VIEW noteShow AS SELECT
       `notes`.`owner` AS `owner`,
       `notes`.`created_at` AS `created_at`,
       `note_keys`.`key` AS `key`,
-      `note_texts`.`text` AS `text`,
-      `note_titles`.`title` AS `title`
+      `note_titles`.`title` AS `title`,
+      `note_texts`.`text` AS `text`
     FROM `notes`
       LEFT JOIN `note_keys` ON `note_keys`.`note` = `notes`.`id`
       LEFT JOIN `note_texts` ON `note_texts`.`note` = `notes`.`id`
