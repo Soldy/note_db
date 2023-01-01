@@ -4,10 +4,12 @@ CREATE OR REPLACE VIEW noteShow AS SELECT
       `notes`.`owner` AS `owner`,
       `notes`.`created_at` AS `created_at`,
       `note_keys`.`key` AS `key`,
+      `note_highlights`.`highlight` AS `highlight`,
       `note_titles`.`title` AS `title`,
       `note_texts`.`text` AS `text`
     FROM `notes`
       LEFT JOIN `note_keys` ON `note_keys`.`note` = `notes`.`id`
       LEFT JOIN `note_texts` ON `note_texts`.`note` = `notes`.`id`
       LEFT JOIN `note_titles` ON `note_titles`.`note` = `notes`.`id`
+      LEFT JOIN `note_highlights` ON `note_highlights`.`id` = `notes`.`highlight`
       ORDER BY `note_keys`.`id`,`note_texts`.`id`,`note_titles`.`id` DESC;

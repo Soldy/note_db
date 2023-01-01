@@ -1,1 +1,1 @@
-DROP TABLES IF EXISTS `note_highlights` (
+DROP TABLES IF EXISTS `note_highlights`;
