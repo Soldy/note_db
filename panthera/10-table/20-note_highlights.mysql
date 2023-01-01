@@ -1,0 +1,6 @@
+CREATE TABLE `note_highlights` (
+    `id` SERIAL,
+    `highlight` VARCHAR(16),
+     KEY `index` (`id`)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;
+

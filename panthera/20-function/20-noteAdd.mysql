@@ -9,13 +9,17 @@ BEGIN
     DECLARE title_id INT UNSIGNED; 
     DECLARE text_id INT UNSIGNED; 
     DECLARE key_id INT UNSIGNED; 
+    DECLARE high_id INT UNSIGNED; 
+    SELECT `note_highlightAdd`(IHIGH) INTO high_id;
     INSERT INTO `notes`(
        `notes`.`public`,
        `notes`.`owner`,
+       `notes`.`highlight`,
        `notes`.`created_at`
     ) VALUES (
        IPUBLIC,
        IOWNER,
+       high_id,
        UNIX_TIMESTAMP()
     );
     SELECT LAST_INSERT_ID() INTO note_id;

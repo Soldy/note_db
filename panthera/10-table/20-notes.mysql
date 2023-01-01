@@ -2,6 +2,7 @@ CREATE TABLE `notes` (
     `id` SERIAL,
     `public` BOOL,
     `owner` BIGINT UNSIGNED NOT NULL,
+    `highlight` BIGINT UNSIGNED NOT NULL,
     `created_at` BIGINT UNSIGNED NOT NULL,
      KEY `index` (`id`)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;

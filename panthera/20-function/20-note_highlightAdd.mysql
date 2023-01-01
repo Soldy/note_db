@@ -1,0 +1,23 @@
+CREATE OR REPLACE FUNCTION `note_highlightAdd`(
+  IHIGHLIGHT VARCHAR(128) CHARSET utf8
+) RETURNS INT MODIFIES SQL DATA
+BEGIN
+    DECLARE high_id INT UNSIGNED; 
+    SELECT `id`
+      INTO 
+        high_id 
+      FROM 
+        `note_highlights`
+       WHERE 
+           `note_highlights`.`highlight` = IHIGHLIGHT
+       LIMIT 1;
+    IF high_id IS NULL THEN 
+        INSERT INTO `note_highlights`(
+            `note_highlights`.`highlight`
+        ) VALUES (
+            IHIGHLIGHT
+        );
+        RETURN (SELECT LAST_INSERT_ID());
+    END IF;
+    RETURN high_id;
+END;
