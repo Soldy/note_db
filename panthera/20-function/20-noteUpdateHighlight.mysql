@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION `noteUpdateHighlight`(
+  INOTE INT UNSIGNED,
+  IHIGH VARCHAR(128)
+) RETURNS INT MODIFIES SQL DATA
+BEGIN
+    DECLARE high_id INT UNSIGNED; 
+    SELECT `note_highlightAdd`(IHIGH) INTO high_id;
+    UPDATE `notes`
+        `notes`.`highlight` = high_id
+      WHERE
+        `note`.`id` = INOTE;
+    RETURN INOTE;
+END;
