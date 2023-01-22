@@ -6,6 +6,7 @@ BEGIN
     DECLARE high_id INT UNSIGNED; 
     SELECT `note_highlightAdd`(IHIGH) INTO high_id;
     UPDATE `notes`
+      SET
         `notes`.`highlight` = high_id
       WHERE
         `note`.`id` = INOTE;

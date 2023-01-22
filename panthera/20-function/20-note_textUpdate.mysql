@@ -4,6 +4,7 @@ CREATE OR REPLACE FUNCTION `note_textUpdate`(
 ) RETURNS INT MODIFIES SQL DATA
 BEGIN
     UPDATE `note_titles`
+      SET
         `note_texts`.`text` = ITEXT
       WHERE
         `note_texts`.`note` = INOTE;

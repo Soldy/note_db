@@ -11,5 +11,5 @@ BEGIN
     SELECT `note_highlightUpdate`(IID, ITITLE) INTO high_id;
     SELECT `note_titleUpdate`(IID, ITITLE) INTO title_id;
     SELECT `note_textUpdate`(IID, ITEXT) INTO text_id;
-    RETURN note_id;
+    RETURN IID;
 END;
