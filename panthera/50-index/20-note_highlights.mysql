@@ -1,0 +1,2 @@
+ALTER TABLE note_highlights
+  ADD PRIMARY KEY(id);
