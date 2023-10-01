@@ -1,0 +1,3 @@
+ALTER TABLE `note_titles`
+  ADD CONSTRAINT FK_title_note
+  FOREIGN KEY (note) REFERENCES notes(id);
