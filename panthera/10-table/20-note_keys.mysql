@@ -1,6 +1,6 @@
 CREATE TABLE `note_keys` (
     `id` SERIAL,
-    `note` INT UNSIGNED NOT NULL,
+    `note` BIGINT UNSIGNED NOT NULL,
     `key` VARCHAR(32),
      KEY `index` (`id`)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;

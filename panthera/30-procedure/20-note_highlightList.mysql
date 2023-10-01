@@ -1,0 +1,6 @@
+CREATE OR REPLACE PROCEDURE note_highlightList ()
+BEGIN
+    SELECT 
+      *
+    FROM `note_highlightList`;
+END

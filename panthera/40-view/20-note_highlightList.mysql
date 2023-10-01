@@ -1,0 +1,5 @@
+CREATE OR REPLACE VIEW note_highlightList AS SELECT 
+      `note_highlights`.`id` AS `id`,
+      `note_highlights`.`highlight` AS `highlight`
+    FROM `note_highlights`
+      ORDER BY `note_highlights`.`id` DESC;

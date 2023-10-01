@@ -1,9 +1,9 @@
 CREATE OR REPLACE FUNCTION `note_textAdd`(
-  INOTE INT UNSIGNED,
+  INOTE BIGINT UNSIGNED,
   ITEXT TEXT
-) RETURNS INT MODIFIES SQL DATA
+) RETURNS BIGINT MODIFIES SQL DATA
 BEGIN
-    DECLARE text_id INT UNSIGNED; 
+    DECLARE text_id BIGINT UNSIGNED; 
     INSERT INTO `note_texts`(
        `note_texts`.`note`,
        `note_texts`.`text`
