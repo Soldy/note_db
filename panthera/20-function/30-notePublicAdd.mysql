@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION `noteAdd`(
+  IPUBLIC BOOL,
+  IHIGH VARCHAR(16),
+  ITITLE VARCHAR(128),
+  ITEXT TEXT
+) RETURNS BIGINT MODIFIES SQL DATA
+BEGIN
+    DECLARE note_id BIGINT UNSIGNED; 
+    SELECT `note_titleAdd`(
+        TRUE,
+        IHIGH,
+        ITITLE,
+        ITEXT
+      ) 
+      INTO note_id;
+    RETURN note_id;
+END;

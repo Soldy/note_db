@@ -10,6 +10,7 @@ BEGIN
     DECLARE text_id BIGINT UNSIGNED; 
     DECLARE key_id BIGINT UNSIGNED; 
     DECLARE high_id BIGINT UNSIGNED; 
+    DECLARE owner_count BIGINT UNSIGNED; 
     SELECT `note_highlightAdd`(IHIGH) INTO high_id;
     INSERT INTO `notes`(
        `notes`.`public`,
@@ -24,5 +25,6 @@ BEGIN
     SELECT `note_titleAdd`(note_id, ITITLE) INTO title_id;
     SELECT `note_textAdd`(note_id, ITEXT) INTO text_id;
     SELECT `note_keyAdd`(note_id, serialShortGet('note')) INTO key_id;
+    SELECT `link_note_ownerAdd`(note_id, IOWNER) INTO owner_count;
     RETURN note_id;
 END;
