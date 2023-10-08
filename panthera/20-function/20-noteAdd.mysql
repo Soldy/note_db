@@ -1,6 +1,5 @@
 CREATE OR REPLACE FUNCTION `noteAdd`(
   IPUBLIC BOOL,
-  IOWNER BIGINT UNSIGNED,
   IHIGH VARCHAR(16),
   ITITLE VARCHAR(128),
   ITEXT TEXT
@@ -14,12 +13,10 @@ BEGIN
     SELECT `note_highlightAdd`(IHIGH) INTO high_id;
     INSERT INTO `notes`(
        `notes`.`public`,
-       `notes`.`owner`,
        `notes`.`highlight`,
        `notes`.`created_at`
     ) VALUES (
        IPUBLIC,
-       IOWNER,
        high_id,
        UNIX_TIMESTAMP()
     );

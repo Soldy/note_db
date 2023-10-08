@@ -1,0 +1,28 @@
+CREATE OR REPLACE FUNCTION `note-ownerAdd`(
+  INOTE BIGINT UNSIGNED, 
+  IOWNER BIGINT UNSIGNED 
+) RETURNS INT MODIFIES SQL DATA
+BEGIN
+    DECLARE link_count BIGINT UNSIGNED; 
+    SELECT COUNT(`id`)
+      INTO 
+        link_count
+      FROM 
+        `link_note-owners`
+       WHERE 
+           `link_note-owners`.`note` = INOTE
+          AND
+           `link_note-owners`.`owner` = IOWNER
+       LIMIT 1;
+
+    IF 1 > link_count THEN 
+         INSERT INTO `link_note-owners`(
+           `link_note-owners`.`note`,
+           `link_note-owners`.`owner`
+         ) VALUES (
+           INOTE,
+           IOWNER
+         );
+    END IF;
+    RETURN link_count;
+END;
