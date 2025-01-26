@@ -1,7 +1,7 @@
-CREATE TABLE `note_texts` (
+CREATE TABLE `note_urls` (
     `id` SERIAL,
     `note` BIGINT UNSIGNED NOT NULL,
-    `highlight` BIGINT UNSIGNED NOT NULL,
-    `text` TEXT NOT NULL,
+    `url`  VARCHAR(128),
+    `title`  VARCHAR(128),
      KEY `index` (`id`)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;

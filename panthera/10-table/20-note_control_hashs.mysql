@@ -1,7 +1,6 @@
-CREATE TABLE `note_texts` (
+CREATE TABLE `note_control_hashs` (
     `id` SERIAL,
     `note` BIGINT UNSIGNED NOT NULL,
-    `highlight` BIGINT UNSIGNED NOT NULL,
-    `text` TEXT NOT NULL,
+    `hash` VARCHAR(128),
      KEY `index` (`id`)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;
