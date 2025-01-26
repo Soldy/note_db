@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION `note_view_hashAdd`(
+  INOTE BIGINT UNSIGNED,
+  IHASH VARCHAR(128)
+) RETURNS BIGINT MODIFIES SQL DATA
+BEGIN
+    DECLARE hash_id BIGINT UNSIGNED; 
+    INSERT INTO `note_view_hashs`(
+       `note_view_hashs`.`note`,
+       `note_view_hashs`.`hash`
+    ) VALUES (
+       INOTE,
+       IHASH
+    );
+    SELECT LAST_INSERT_ID() INTO hash_id;
+    RETURN hash_id;
+END;

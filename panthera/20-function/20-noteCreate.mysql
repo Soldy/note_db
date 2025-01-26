@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION `noteCreate`(
+  IPUBLIC BOOL,
+  IHASH VARCHAR(128)
+) RETURNS BIGINT MODIFIES SQL DATA
+BEGIN
+    DECLARE note_id BIGINT UNSIGNED; 
+    DECLARE hash_id BIGINT UNSIGNED; 
+    INSERT INTO `notes`(
+       `notes`.`public`,
+       `notes`.`created_at`
+    ) VALUES (
+       IPUBLIC,
+       UNIX_TIMESTAMP()
+    );
+    SELECT LAST_INSERT_ID() INTO note_id;
+    SELECT `note_control_hashAdd`(note_id, IHASH) INTO hash_id;
+    RETURN note_id;
+END;
