@@ -1,4 +1,4 @@
-CREATE TABLE `link_note-owners` (
+CREATE TABLE `link_note-pics` (
    `note` BIGINT UNSIGNED,
-   `owner` BIGINT UNSIGNED
+   `pic` BIGINT UNSIGNED
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;
