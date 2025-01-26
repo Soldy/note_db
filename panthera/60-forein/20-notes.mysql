@@ -1,3 +1,0 @@
-ALTER TABLE `notes`
-  ADD CONSTRAINT FK_highlight
-  FOREIGN KEY (highlight) REFERENCES note_highlights(id);
