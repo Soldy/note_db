@@ -1,3 +1,11 @@
+
+/**
+ * @ptable note_control_hashs
+ * @pcol {serial} id 
+ * @pcol {uint64_t} note
+ * @pcol {string} hash
+**/
+
 CREATE TABLE `note_control_hashs` (
     `id` SERIAL,
     `note` BIGINT UNSIGNED NOT NULL,

@@ -1,3 +1,11 @@
+
+/**
+ * @ptable note_keys
+ * @pcol {serial} id 
+ * @pcol {uint64_t} note
+ * @pcol {string} key
+**/
+
 CREATE TABLE `note_keys` (
     `id` SERIAL,
     `note` BIGINT UNSIGNED NOT NULL,

@@ -1,3 +1,12 @@
+
+/**
+ * @ptable note_texts
+ * @pcol {serial} id 
+ * @pcol {uint64_t} note
+ * @pcol {uint64_t} highlight
+ * @pcol {string} text
+**/
+
 CREATE TABLE `note_texts` (
     `id` SERIAL,
     `note` BIGINT UNSIGNED NOT NULL,

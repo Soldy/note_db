@@ -1,3 +1,12 @@
+
+/**
+ * @ptable note_keys
+ * @ptype add
+ * @pinput {uint64_t} INOTE
+ * @pinput {string} KEYI
+ * @pretun {uint64_t}
+**/
+
 CREATE OR REPLACE FUNCTION `note_keyAdd`(
   INOTE BIGINT UNSIGNED,
   IKEY VARCHAR(32)

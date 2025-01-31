@@ -1,3 +1,11 @@
+
+/**
+ * @ptable notes
+ * @pcol {serial} id 
+ * @pcol {bool} public
+ * @pcol {uint64_t} created_at
+**/
+
 CREATE TABLE `notes` (
     `id` SERIAL,
     `public` BOOL,

@@ -1,3 +1,10 @@
+
+/**
+ * @ptable note_pics
+ * @pcol {serial} id 
+ * @pcol {string} pic 
+**/
+
 CREATE TABLE `note_pics` (
     `id` SERIAL,
     `pic`  VARCHAR(128),

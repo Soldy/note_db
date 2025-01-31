@@ -1,3 +1,12 @@
+
+/**
+ * @ptable note_urls
+ * @pcol {serial} id 
+ * @pcol {uint64_t} note
+ * @pcol {string} url
+ * @pcol {string} title
+**/
+
 CREATE TABLE `note_urls` (
     `id` SERIAL,
     `note` BIGINT UNSIGNED NOT NULL,

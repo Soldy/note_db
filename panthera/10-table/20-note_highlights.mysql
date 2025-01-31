@@ -1,3 +1,10 @@
+
+/**
+ * @ptable note_highlights
+ * @pcol {serial} id 
+ * @pcol {string} highlight
+**/
+
 CREATE TABLE `note_highlights` (
     `id` SERIAL,
     `highlight` VARCHAR(16),

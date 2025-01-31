@@ -1,7 +1,16 @@
+
+/**
+ * @ptable note_titles
+ * @ptype add
+ * @pinput {uint64_t} INOTE
+ * @pinput {string} ITITLE
+ * @pretun {uint64_t}
+**/
+
 CREATE OR REPLACE FUNCTION `note_titleAdd`(
   INOTE BIGINT UNSIGNED,
   ITITLE VARCHAR(128)
-) RETURNS BIGINT MODIFIES SQL DATA
+) RETURNS BIGINT UNSIGNED MODIFIES SQL DATA
 BEGIN
     DECLARE title_id BIGINT UNSIGNED; 
     INSERT INTO `note_titles`(
